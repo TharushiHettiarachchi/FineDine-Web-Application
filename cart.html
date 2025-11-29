@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | FineDine</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="cart.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cart-container">
+        <header class="cart-header">
+            <button onclick="window.location.href = 'drawer/home.html'" class="back-button">←</button>
+            <h1>Your Cart</h1>
+        </header>
+
+        <main id="cart-list">
+            <p>Loading your cart...</p>
+        </main>
+
+        <footer id="cart-summary-bar">
+            </footer>
+    </div>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <h3>How would you like to provide the table number?</h3>
+            <button id="type-table-btn" class="modal-option-btn">Type Table Number</button>
+            <!-- <button id="scan-qr-btn" class="modal-option-btn">Scan QR Code (Future Feature)</button> -->
+            <button id="close-modal-btn" class="modal-close-btn">Cancel</button>
+            
+            <div id="table-input-section" style="display: none; margin-top: 20px;">
+                <input type="number" id="table-number-input" placeholder="Enter Table Number" class="table-input">
+                <button id="confirm-table-btn" class="modal-confirm-btn">Confirm Order</button>
+            </div>
+<!--             
+            <div id="qr-scanner-section" style="display: none; margin-top: 20px;">
+                <p>QR scanning feature coming soon...</p>
+            </div> -->
+        </div>
+    </div>
+
+    <script type="module" src="firebase.js"></script> 
+    <script type="module" src="cart.js"></script> 
+</body>
+</html>

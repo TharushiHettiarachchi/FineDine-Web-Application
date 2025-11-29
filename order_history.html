@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History | FineDine</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="cart.css"> <link rel="stylesheet" href="order_history.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="cart-header">
+            <button onclick="window.location.href = 'drawer/home.html'" class="back-button">←</button>
+            <h1>My Orders</h1>
+        </header>
+
+        <main id="order-list">
+            <p>Loading your order history...</p>
+        </main>
+    </div>
+
+    <script type="module" src="firebase.js"></script> 
+    <script type="module" src="order_history.js"></script> 
+</body>
+</html>

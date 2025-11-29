@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="product-title">Product Details | FineDine</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="product.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="product-container">
+        <header class="product-header">
+            <button onclick="history.back()" class="back-button">← Back to Menu</button>
+        </header>
+
+        <main id="product-details-main">
+            <p>Loading product details...</p>
+        </main>
+        
+        <div id="cart-action-bar">
+            </div>
+
+    </div>
+
+    <script type="module" src="firebase.js"></script> 
+    <script type="module" src="product.js"></script> 
+</body>
+</html>

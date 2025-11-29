@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Menu | FineDine</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="home-container">
+
+<header class="navbar">
+    <div class="nav-left">
+        <img src="../Resources/icon_black.png" class="imgicon"/>
+        <h1 class="app-title">FineDine</h1>
+    </div>
+
+    <!-- 🔍 Search Bar -->
+    <div class="nav-search">
+        <input type="text" id="search-input" placeholder="Search food..." />
+    </div>
+
+    <div class="nav-right">
+        <a href="../cart.html" class="nav-btn "> Cart</a>
+        <a href="../order_history.html" class="nav-btn"> Orders</a>
+        <button id="logout-button" class="nav-btn">Logout</button>
+    </div>
+</header>
+
+
+
+        <main class="main-content">
+          
+            <div id="menu-container">
+                <p>Loading menu...</p>
+            </div>
+        </main>
+
+        <!-- <button id="logout-button" class="logout-btn">Logout</button> -->
+    </div>
+
+    <script type="module" src="../firebase.js"></script>
+    <script type="module" src="./home.js"></script>
+</body>
+
+</html>

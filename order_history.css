@@ -1,0 +1,103 @@
+/* order_history.css */
+.container{
+    width: 100vw;
+    background-color: white;
+}
+#order-list {
+    padding: 10px 20px;
+}
+
+/* --- Order Card --- */
+.order-card {
+    background-color: #e5e5e5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.order-id {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+
+.order-date {
+    font-size: 14px;
+    color: #888;
+}
+
+.order-status {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+/* Status Colors */
+.status-Pending {
+    background-color: #ff9800; 
+    color: #ffffff;
+}
+
+/* .status-Preparing {
+    background-color: #ff9800; 
+    color: white;
+}
+
+.status-Ready {
+    background-color: #4caf50; 
+    color: white;
+} */
+
+.status-Completed {
+    background-color: #000000; 
+    color: white;
+}
+
+.order-total {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFB22C;
+    margin-top: 10px;
+}
+
+/* --- Order Items List --- */
+.order-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 15px;
+    border-top: 1px dashed #f0f0f0;
+}
+
+.order-item:first-child {
+    border-top: none;
+}
+
+.item-name {
+    font-weight: 500;
+    color: #333;
+}
+
+.item-qty {
+    color: #888;
+    text-align: right;
+}

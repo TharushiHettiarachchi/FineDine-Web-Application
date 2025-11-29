@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="icon" href="Resources/icon_black.png">
+    <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="logo-container">
+            <img src="./Resources/icon_black.png" class="logo-image" alt="">
+        </div>
+
+        <div class="second-view">
+            <h1 class="sign-in-header">Sign Up</h1>
+
+            <form id="sign-up-form">
+                
+                <div class="input-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" placeholder="Enter your first name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" placeholder="Enter your last name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="mobile-number">Mobile Number</label>
+                    <input 
+                        type="tel" 
+                        id="mobile-number" 
+                        placeholder="Enter your mobile number" 
+                        required 
+                        maxlength="15"
+                    >
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" id="sign-up-button">Create Account</button>
+                </div>
+            </form>
+
+            <p class="link1">
+                Already have an account?
+                <a href="/finedinewapp/index.html">Sign In</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div id="alert-modal" class="alert-modal">
+        <div class="alert-content">
+            <p id="alert-message"></p>
+            <button id="close-alert">Close</button>
+        </div>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="signup.js"></script>
+
+</body>
+</html>

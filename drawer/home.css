@@ -1,0 +1,418 @@
+/* home.css (inside the drawer folder) */
+
+/* Base Styles */
+.home-container {
+    width: 100vw;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #FFFFFF;
+    min-height: 100vh;
+}
+
+.home-header {
+    background-color: #FFB22C;
+    color: white;
+    padding: 30px 20px;
+    margin: 0;
+    text-align: center;
+}
+
+.home-header h1 {
+    font-size: 32px;
+    margin: 0;
+    font-family: 'Aoboshi One', cursive;
+}
+
+.main-content {
+    padding: 20px 0 20px 0; /* Adjusted padding for full-width scroll container */
+}
+
+.main-content h2 {
+    margin-top: 0;
+    color: #333;
+    padding-left: 20px; /* Aligns with category headers */
+    padding-bottom: 10px;
+    font-size: 28px;
+}
+
+/* Category Headers */
+.category-section {
+    margin-bottom: 30px;
+}
+
+.category-header {
+    /* background-color: #f0f0f0; */
+    color: #e09f20;
+    padding: 10px 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    /* border-left: 5px solid #FFB22C; */
+    padding-left: 20px;
+}
+
+/* ---------------------------------------------------- */
+/* 💡 HORIZONTAL SCROLLING CONTAINER (CRITICAL FIXES) */
+/* ---------------------------------------------------- */
+.food-list-horizontal {
+    display: flex; 
+    overflow-x: scroll; /* Enables scrolling on the x-axis */
+    padding: 0 20px 10px 20px; /* Padding for the container (20px left/right) */
+    
+    /* CRITICAL: Ensures items don't wrap to the next line */
+    flex-wrap: nowrap; 
+    
+    /* Hides the scrollbar */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.food-list-horizontal::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+.imgicon{
+    height: 60px;
+    width: auto;
+}
+
+/* Food Item Card Styles */
+.food-item-card {
+    display: block; 
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    
+    /* CRITICAL: Defines card width and prevents shrinking */
+    width: 250px; 
+    flex-shrink: 0; 
+    
+    margin-right: 15px; /* Space between cards */
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.food-item-image {
+    width: 100%;
+    height: 170px; 
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.item-details {
+    padding: 8px 10px; 
+}
+
+.item-details h4 {
+    margin: 0 0 3px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.item-details .description {
+    max-height: 40px; 
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-details .price-info {
+    margin: 0;
+    font-weight: bold;
+    color: #FFB22C;
+}
+
+/* Logout Button */
+/* .logout-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #FFB22C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+} */
+/* home.css (inside the drawer folder) */
+
+/* Base Styles (UNCHANGED) */
+.home-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #FFFFFF;
+    min-height: 100vh;
+}
+
+.home-header {
+    background-color: #FFB22C;
+    color: white;
+    padding: 30px 20px;
+    margin: 0;
+    text-align: center;
+}
+
+/* ... (Category Headers and food-list-horizontal remain the same) ... */
+
+/* Food Item Card Styles */
+.food-item-card {
+    display: block; 
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    
+    width: 250px; 
+    flex-shrink: 0; 
+    
+    margin-right: 15px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.food-item-image {
+    width: 100%;
+    height: 170px; 
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.item-details {
+    padding: 8px 10px; 
+    /* 💡 NEW: Center text components within the details section */
+    text-align: center; 
+}
+
+.item-details h4 {
+    margin: 0 0 3px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.item-details .description {
+    max-height: 40px; 
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Description remains centered */
+}
+
+/* Price Section Styling */
+.item-details .price-info {
+    margin: 5px 0 10px 0;
+    font-weight: bold;
+    color: #FFB22C;
+    font-size: 14px;
+}
+
+/* 💡 NEW: Style for the "View" Button */
+.view-button {
+    display: block;
+    width: 90%;
+    margin: 10px auto 10px auto; /* Centers the button */
+    padding: 8px;
+    background-color: #FFB22C; /* Dark color for contrast */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.view-button:hover {
+    background-color: #f5b647;
+}
+
+/* ... (Logout Button remains the same) ... */
+
+/* drawer/home.css */
+
+/* Update the header to use flexbox for alignment */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#welcome-message {
+    font-family: 'Aoboshi One', cursive;
+    font-size: 18px;
+    color: #333;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.action-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none; /* For the <a> tag (Cart Button) */
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+/* Style for the Cart Button */
+#cart-button {
+    background-color: #FFB22C; /* Your primary color */
+    color: white;
+    font-weight: bold;
+}
+
+#cart-button:hover {
+    background-color: #e09f20;
+}
+
+
+/* #logout-button {
+    background-color: #FFB22C;
+    color: #555;
+}
+
+#logout-button:hover {
+    background-color: #e0e0e0;
+} */
+/* ===================================================== */
+/* 🚀 MODERN STRUCTURED NAVIGATION BAR */
+/* ===================================================== */
+
+.navbar {
+    width: calc(100vw - 55px);
+    padding: 12px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.367);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.app-title {
+    font-family: 'Aoboshi One', cursive;
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+
+.nav-right {
+    display: flex;
+    gap: 12px;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    /* padding: 8px 14px; */
+    border-radius: 6px;
+    background-color: #FFB22C;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    height: 40px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease-in-out;
+}
+
+/* Highlighted Button (Cart or Primary) */
+/* .nav-btn.highlight {
+    background-color: #FFB22C;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #e09f20;
+} */
+
+/* Hover Effects */
+.nav-btn:hover {
+    background-color: #eaeaea;
+    color: #e09f20;
+    font-size: 16px;
+    width: 110px;
+}
+
+.nav-btn.highlight:hover {
+    background-color: #e09f20;
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-btn {
+        width: auto;
+        background-color: #FFB22C;
+        padding: 10px 16px;
+        height: auto;
+    }
+}
+
+/* ===================================================== */
+/* 🔍 Search Bar Styling */
+/* ===================================================== */
+
+.nav-search {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#search-input {
+    width: 60%;
+    max-width: 350px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+#search-input:focus {
+    border-color: #FFB22C;
+    box-shadow: 0 0 4px rgba(255, 178, 44, 0.5);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    #search-input {
+        width: 90%;
+        max-width: none;
+    }
+}
+

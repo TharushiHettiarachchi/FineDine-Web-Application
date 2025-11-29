@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Sign In</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="logo-container">
+            <img src="./Resources/icon_black.png" alt="Restaurant Logo" class="logo-image">
+        </div>
+
+        <div class="second-view">
+            <h1 class="sign-in-header">Sign In</h1>
+            
+            <form id="sign-in-form">
+                <div class="input-group">
+                    <label for="mobile-number">Mobile Number</label>
+                    <input 
+                        type="tel" 
+                        id="mobile-number" 
+                        placeholder="Enter your mobile number" 
+                        required
+                        maxlength="15"
+                    >
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" id="sign-in-button">Sign In</button>
+                </div>
+            </form>
+
+            <p class="link1">
+                Don't have an account? 
+                <a href="/finedinewapp/signUp.html">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="alert-modal" class="alert-modal">
+        <div class="alert-content">
+            <p id="alert-message">Mobile number not found!</p>
+            <button id="close-alert">Close</button>
+        </div>
+    </div>
+    
+    <script type="module" src="firebase.js"></script> 
+    <script type="module" src="script.js"></script> 
+</body>
+</html>
