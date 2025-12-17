@@ -1,11 +1,11 @@
-// order_history.js
+
 
 import { db } from "./firebase.js"; 
 import { collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 
 const orderListContainer = document.getElementById('order-list');
 
-// --- Utility Functions ---
+
 
 const getCurrentUserId = () => {
     const userString = localStorage.getItem('user');
@@ -34,7 +34,6 @@ const formatDate = (timestamp) => {
     return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 };
 
-// --- Rendering Functions ---
 
 const renderOrderHistory = (orders) => {
     if (orders.length === 0) {
@@ -47,7 +46,7 @@ const renderOrderHistory = (orders) => {
         const itemsListHtml = order.items.map(item => {
             let itemDetails = '';
             
-            // Use defensive checks for item quantities
+        
             if ((item.fullPortionQty || 0) > 0) {
                 itemDetails += `<li class="order-item">
                                     <span class="item-name">${item.name} (Full)</span>
@@ -90,7 +89,7 @@ const renderOrderHistory = (orders) => {
 };
 
 
-// --- Data Fetching ---
+
 
 const loadOrderHistory = async () => {
     const userId = getCurrentUserId();
@@ -127,8 +126,6 @@ const loadOrderHistory = async () => {
 };
 
 
-// ----------------------------------------------------
-// 🎯 EXECUTION BLOCK
-// ----------------------------------------------------
+
 
 document.addEventListener('DOMContentLoaded', loadOrderHistory);

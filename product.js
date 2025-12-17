@@ -14,7 +14,6 @@ let currentQuantities = {
 };
 let itemPrices = {};
 
-// --- Utility Functions ---
 
 const getProductIdFromUrl = () => {
     const params = new URLSearchParams(window.location.search);
@@ -25,7 +24,7 @@ const getCurrentUserId = () => {
     const userString = localStorage.getItem('user');
     if (userString) {
         try {
-            // This relies on your login script saving the user ID as 'uid'
+           
             const user = JSON.parse(userString);
             return user.uid; 
         } catch (e) {
@@ -36,7 +35,7 @@ const getCurrentUserId = () => {
     return null;
 };
 
-// --- Quantity & Total Management ---
+
 
 const updateQuantity = (portionType, change) => {
     let newQty = currentQuantities[portionType] + change;
@@ -68,12 +67,12 @@ const updateTotal = () => {
     
     const cartButton = document.getElementById('add-to-cart-btn');
     if (cartButton) {
-        // Disables the button if total is 0
+     
         cartButton.disabled = isZero;
     }
 };
 
-// --- Event Listener Attachment (MOVED UP to prevent ReferenceError) ---
+
 const attachQuantityListeners = () => {
     document.querySelectorAll('.qty-btn').forEach(button => {
         button.addEventListener('click', (e) => {
@@ -85,7 +84,7 @@ const attachQuantityListeners = () => {
 };
 
 
-// --- Rendering Functions ---
+
 
 const renderQuantityControl = (type, price) => {
     if (!price || price === 0) return '';
@@ -130,7 +129,7 @@ const renderProduct = (item) => {
         </div>
     `;
     
-    // Attach listeners after rendering controls
+
     attachQuantityListeners();
 };
 
@@ -142,11 +141,11 @@ const renderCartActionBar = () => {
     `;
     
     document.getElementById('add-to-cart-btn').addEventListener('click', handleAddToCart);
-    updateTotal(); // Initialize button state (disabled if total is 0)
+    updateTotal(); 
 };
 
 
-// --- Data Fetching ---
+
 
 const loadProductDetails = async () => {
     const productId = getProductIdFromUrl();
@@ -181,14 +180,14 @@ const loadProductDetails = async () => {
 };
 
 
-// --- Cart Logic (Firestore) ---
+
 
 const handleAddToCart = async () => {
     const userId = getCurrentUserId();
     const totalQty = currentQuantities.full + currentQuantities.half;
     
     if (!userId) {
-        // This is the check that was failing due to missing 'uid' in localStorage
+      
         alert("You must be logged in to add items to the cart.");
         window.location.replace('index.html'); 
         return;
@@ -202,7 +201,7 @@ const handleAddToCart = async () => {
     const cartCollection = collection(db, 'cart');
     
     try {
-        // 1. Check if this specific item is already in the user's cart
+      
         const q = query(
             cartCollection, 
             where("userId", "==", userId),
@@ -214,7 +213,7 @@ const handleAddToCart = async () => {
         const newHalfQty = currentQuantities.half;
 
         if (!snapshot.empty) {
-            // 2. Item exists: Update the existing document
+          
             const existingCartDoc = snapshot.docs[0];
             const existingData = existingCartDoc.data();
             
@@ -230,7 +229,7 @@ const handleAddToCart = async () => {
             alert(`Updated ${currentItemData.name} in cart! Total Qty: ${updatedFullQty + updatedHalfQty}`);
 
         } else {
-            // 3. Item is new: Create a new cart document
+          
             const newCartItem = {
                 userId: userId,
                 productId: currentItemData.id,
@@ -245,7 +244,7 @@ const handleAddToCart = async () => {
             alert(`Added ${totalQty} items of ${currentItemData.name} to the cart!`);
         }
 
-        // Reset quantities after adding to cart
+       
         currentQuantities.full = 0;
         currentQuantities.half = 0;
         loadProductDetails(); 
@@ -257,5 +256,5 @@ const handleAddToCart = async () => {
 };
 
 
-// Start the process when the script loads
+
 loadProductDetails();

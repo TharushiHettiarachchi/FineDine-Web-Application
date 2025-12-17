@@ -12,14 +12,14 @@ let cartItems = [];
 let foodCache = {}; 
 let totalCartValue = 0;
 
-// --- Utility Functions ---
+
 
 const getCurrentUserId = () => {
     const userString = localStorage.getItem('user');
     if (userString) {
         try {
             const user = JSON.parse(userString);
-            // Ensure the correct UID field name is used
+          
             return user.uid; 
         } catch (e) {
             console.error("UTILITY ERROR: Error parsing user data from localStorage:", e);
@@ -30,7 +30,7 @@ const getCurrentUserId = () => {
     return null;
 };
 
-// --- Modal Handling ---
+
 
 const showModal = () => {
     if (checkoutModal) checkoutModal.style.display = 'block';
@@ -83,7 +83,7 @@ const setupModalListeners = () => {
 };
 
 
-// --- Data Fetching and Initialization (LOAD CART) ---
+
 
 const fetchFoodDetails = async () => {
     const productIds = [...new Set(cartItems.map(item => item.productId))];
@@ -98,11 +98,11 @@ const fetchFoodDetails = async () => {
                 if (foodSnap.exists()) {
                     const data = foodSnap.data();
                     
-                    // CRITICAL: Cache fields with safe defaults to prevent 'undefined' later
+                   
                     foodCache[id] = {
                         name: data.name || 'Unknown',
                         imageUrl: data.imageUrl || '', 
-                        // Note: Caching price fields as 'fullPrice' and 'halfPrice' for use in finalizeOrder
+                      
                         fullPrice: data.fullPortionPrice || 0, 
                         halfPrice: data.halfPortionPrice || 0,
                     };
@@ -150,7 +150,7 @@ const loadCart = async () => {
 };
 
 
-// --- Rendering ---
+
 
 const attachQuantityListeners = () => { 
     document.querySelectorAll('.qty-btn').forEach(button => {
@@ -183,13 +183,12 @@ const renderCart = () => {
             return; 
         }
         
-        // Use fallbacks (|| 0) here to ensure valid math
+      
         const fullSubtotal = (item.fullPortionQty || 0) * (food.fullPrice || 0);
         const halfSubtotal = (item.halfPortionQty || 0) * (food.halfPrice || 0);
         const itemTotal = fullSubtotal + halfSubtotal;
         totalCartValue += itemTotal; 
 
-        // FIX: Use reliable placeholder service
         const imageUrl = food.imageUrl || 'https://placehold.co/80x80?text=Food';
 
         htmlContent += `
@@ -235,7 +234,7 @@ const renderCart = () => {
 const renderSummaryBar = (total) => {
     if (!cartSummaryBar) return;
     
-    // Ensure total is formatted correctly, even if 0
+   
     const displayTotal = (total || 0).toFixed(2);
     
     cartSummaryBar.innerHTML = `
@@ -297,7 +296,7 @@ window.handleRemoveItem = async (cartDocId) => {
     }
 };
 
-// --- Finalize Order Logic ---
+
 
 const finalizeOrder = async (tableNumber) => {
     if (!tableNumber || tableNumber.toString().trim() === "") {
@@ -316,28 +315,27 @@ const finalizeOrder = async (tableNumber) => {
         return;
     }
     
-    // FIX: Use defensive coding to prevent 'undefined' field values and filter out nulls/undefineds
-    const orderItems = cartItems.map(item => {
+   const orderItems = cartItems.map(item => {
         const food = foodCache[item.productId];
         
         if (!food) {
             console.warn(`Skipping order item: Missing food details for ID: ${item.productId}`);
-            return null; // Skip invalid items
+            return null; 
         }
         
         return {
-            // CRITICAL: Ensure all fields are explicitly defined with fallback values
+          
             fullPortionPrice: food.fullPrice || 0,
             fullPortionQty: item.fullPortionQty || 0,
             halfPortionPrice: food.halfPrice || 0,
             halfPortionQty: item.halfPortionQty || 0,
-            imageUrl: food.imageUrl || '', // Fallback to empty string
+            imageUrl: food.imageUrl || '',
             name: food.name || 'Unknown Item',
             productId: item.productId,
             
-            // REMOVED fields '1' and '2' which were redundant and causing the undefined error.
+         
         };
-    }).filter(item => item !== null && item !== undefined); // Filter out any skipped or invalid items
+    }).filter(item => item !== null && item !== undefined); 
     
     
     if (orderItems.length === 0) {
@@ -345,13 +343,13 @@ const finalizeOrder = async (tableNumber) => {
         return;
     }
     
-    // FIX: Ensure totalAmount is a valid number, never NaN or undefined
+ 
     const validatedTotalAmount = isNaN(totalCartValue) ? 0 : totalCartValue;
 
-    // Prepare the Final Order Document
+   
     const orderDocument = {
         userId: userId,
-        totalAmount: validatedTotalAmount, // Use the validated total
+        totalAmount: validatedTotalAmount,
         orderDate: new Date(),
         status: "Pending", 
         tableNumber: tableNumber,
@@ -359,16 +357,16 @@ const finalizeOrder = async (tableNumber) => {
     };
 
     try {
-        // 3. Save the new Order document to Firestore
-        const orderRef = await addDoc(collection(db, 'orders'), orderDocument); // <-- Failure point resolved
+    
+        const orderRef = await addDoc(collection(db, 'orders'), orderDocument); 
 
-        // 4. Delete all items from the user's 'cart' collection
+     
         const deletePromises = cartItems.map(item => 
             deleteDoc(doc(db, 'cart', item.cartDocId))
         );
         await Promise.all(deletePromises);
 
-        // 5. Success Feedback and UI Update
+        
         alert(`Order Placed Successfully! Table: ${tableNumber}. Order ID: ${orderRef.id}`);
         
         cartItems = [];
@@ -382,9 +380,6 @@ const finalizeOrder = async (tableNumber) => {
 };
 
 
-// ----------------------------------------------------
-// 🎯 EXECUTION BLOCK
-// ----------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
     loadCart();
     setupModalListeners();

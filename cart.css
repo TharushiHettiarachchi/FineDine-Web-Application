@@ -1,4 +1,4 @@
-/* cart.css */
+
 
 .cart-container {
     width: 100%;
@@ -34,10 +34,10 @@
 
 #cart-list {
     padding: 10px 20px;
-    padding-bottom: 80px; /* Space for the fixed summary bar */
+    padding-bottom: 80px; 
 }
 
-/* --- Cart Item Card --- */
+
 .cart-item-card {
     display: flex;
     padding: 15px 15px;
@@ -84,9 +84,8 @@
     font-size: 16px;
 }
 
-/* --- Quantity Controls --- */
 .qty-control-group {
-    display: inline-flex; /* Changed to inline-flex to contain size */
+    display: inline-flex; 
     align-items: center;
     background-color: white;
     border: 1px solid #ccc;
@@ -113,7 +112,6 @@
     background-color: transparent;
 }
 
-/* --- Fixed Cart Summary Bar --- */
 #cart-summary-bar {
     position: fixed;
     bottom: 0;
@@ -157,7 +155,7 @@
     margin-left: 10px;
 }
 
-/* --- Modal Styles --- */
+
 .modal {
     position: fixed;
     z-index: 2000;

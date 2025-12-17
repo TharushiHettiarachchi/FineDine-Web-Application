@@ -1,12 +1,9 @@
-// firebase.js
-// place this file in same folder as index.html and import as module: <script type="module" src="firebase.js"></script>
 
-// Import necessary Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
-// --- YOUR Firebase config ---
+
 const firebaseConfig = {
     apiKey: "AIzaSyD6otX0ShRq_YiNp5_6JpFetGuakCfrolc",
     authDomain: "finedine-3970b.firebaseapp.com",

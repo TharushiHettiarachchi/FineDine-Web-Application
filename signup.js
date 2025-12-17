@@ -2,7 +2,7 @@ import { db } from "./firebase.js";
 import { collection, addDoc, query, where, getDocs } 
     from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 
-// Alert modal functions
+
 function showAlert(message) {
     document.getElementById("alert-message").textContent = message;
     document.getElementById("alert-modal").style.display = "flex";
@@ -28,7 +28,7 @@ document.getElementById("sign-up-form").addEventListener("submit", async (e) => 
     btn.textContent = "Creating...";
 
     try {
-        // Check if mobile already exists
+       
         const q = query(collection(db, "user"), where("mobile", "==", mobile));
         const snap = await getDocs(q);
 
@@ -39,14 +39,14 @@ document.getElementById("sign-up-form").addEventListener("submit", async (e) => 
             return;
         }
 
-        // Create new user
+        
         const docRef = await addDoc(collection(db, "user"), {
             firstName: firstName,
             lastName: lastName,
             mobile: mobile,
         });
 
-        // Store logged-in user immediately
+        
         const userData = {
             uid: docRef.id,
             firstName,

@@ -1,6 +1,4 @@
-/* product.css */
 
-/* General Styles for Product View */
 .product-container {
     width: 100%;
     margin: 0 auto;
@@ -25,10 +23,10 @@
 
 #product-details-main {
     padding: 0; 
-    padding-bottom: 80px; /* Space for the fixed cart bar */
+    padding-bottom: 80px; 
 }
 
-/* Product Card Styling (Full Width) */
+
 .product-card {
     border-radius: 0;
     overflow: hidden;
@@ -66,12 +64,12 @@
     margin-left: 10px;
 }
 
-/* Price and Quantity Selection Section (Edge-to-Edge) */
+
 .price-section {
     padding: 15px 20px;
     background-color: #fef5e6;
     margin-top: 20px;
-    /* Uses negative margins to span the width of the parent */
+  
     margin-left: -20px;
     margin-right: -20px;
 }
@@ -94,7 +92,7 @@
     color: #333;
 }
 
-/* Quantity Control Group */
+
 .qty-control-group {
     display: flex;
     align-items: center;
@@ -130,7 +128,7 @@
 }
 
 
-/* Fixed Cart Action Bar (Always Full Width) */
+
 #cart-action-bar {
     position: fixed;
     bottom: 0;

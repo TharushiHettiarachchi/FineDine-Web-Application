@@ -1,4 +1,4 @@
-/* order_history.css */
+
 .container{
     width: 100vw;
     background-color: white;
@@ -7,7 +7,7 @@
     padding: 10px 20px;
 }
 
-/* --- Order Card --- */
+
 .order-card {
     background-color: #e5e5e5;
     border: 1px solid #ddd;
@@ -45,21 +45,13 @@
     text-transform: uppercase;
 }
 
-/* Status Colors */
+
 .status-Pending {
     background-color: #ff9800; 
     color: #ffffff;
 }
 
-/* .status-Preparing {
-    background-color: #ff9800; 
-    color: white;
-}
 
-.status-Ready {
-    background-color: #4caf50; 
-    color: white;
-} */
 
 .status-Completed {
     background-color: #000000; 
@@ -73,7 +65,7 @@
     margin-top: 10px;
 }
 
-/* --- Order Items List --- */
+
 .order-items-list {
     list-style: none;
     padding: 0;

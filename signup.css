@@ -1,4 +1,4 @@
-/* Reset + Base */
+
 body {
     margin: 0;
     padding: 0;
@@ -10,7 +10,6 @@ body {
     min-height: 100vh;
 }
 
-/* Main container */
 .main-container {
     width: 100%;
     max-width: 450px;
@@ -20,7 +19,7 @@ body {
     align-items: center;
 }
 
-/* Logo section */
+
 .logo-container {
     display: flex;
     justify-content: center;
@@ -36,7 +35,7 @@ body {
     object-fit: cover;
 }
 
-/* White form section */
+
 .second-view {
     width: 100%;
     min-height: 50vh;
@@ -57,7 +56,7 @@ body {
     text-align: center;
 }
 
-/* Form styling */
+
 #sign-up-form {
     width: 100%;
     display: flex;
@@ -86,7 +85,7 @@ body {
     font-size: 16px;
 }
 
-/* Button */
+
 .button-group {
     width: 80%;
     margin-top: 30px;
@@ -113,7 +112,7 @@ body {
     cursor: not-allowed;
 }
 
-/* Link below form */
+
 .link1 {
     margin-top: 20px;
     color: #808080;
@@ -130,7 +129,7 @@ body {
     text-decoration: underline;
 }
 
-/* Alert modal */
+
 .alert-modal {
     position: fixed;
     z-index: 100;

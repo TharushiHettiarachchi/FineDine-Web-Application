@@ -1,13 +1,10 @@
-// drawer/home.js (inside the drawer folder)
+
 
 import { db } from "../firebase.js"; 
 import { collection, query, getDocs } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 
 let currentUser = null;
 
-// ===============================================
-// 🏠 1. FUNCTION DEFINITIONS (MUST BE FIRST)
-// ===============================================
 
 const handleLogout = () => {
     localStorage.removeItem('user');
@@ -111,14 +108,12 @@ const initializeHomeLayout = () => {
     }
 
     loadFullMenu().then(() => {
-        enableSearchFilter(); // ✅ Activate search AFTER menu loads
+        enableSearchFilter(); // 
     });
 };
 
 
-// ===============================================
-// 🛑 2. IMMEDIATE AUTHENTICATION CHECK (MUST BE LAST)
-// ===============================================
+
 
 const userString = localStorage.getItem('user');
 
@@ -128,19 +123,19 @@ if (!userString) {
 }
 
 try {
-    // 1. Safely parse the user data.
+   
     currentUser = JSON.parse(userString);
     
-    // 2. CRITICAL CHECK: Ensure the required 'uid' field exists.
+   
     if (!currentUser || !currentUser.uid) {
         throw new Error("User data is invalid or missing UID.");
     }
 
-    // 3. CALL FUNCTION: Now that all definitions are above, this will execute successfully.
+   
     initializeHomeLayout();
 
 } catch (e) {
-    // Fallback: This block will only execute if JSON parsing fails or the UID check fails.
+   
     console.error("Home Script Critical Error: Failed to parse/validate user data. Logging out.", e);
     localStorage.removeItem('user');
     window.location.replace('../index.html');
@@ -167,7 +162,7 @@ const enableSearchFilter = () => {
             }
         });
 
-        // Hide empty category sections
+       
         document.querySelectorAll(".category-section").forEach(section => {
             const visible = section.querySelectorAll(".food-item-card:not([style*='display: none'])").length;
             section.style.display = visible > 0 ? "block" : "none";
